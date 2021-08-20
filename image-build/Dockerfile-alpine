@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-FROM openjdk:8-alpine
+FROM schnell18/zulu-java:alpine-jre8-0.2.0
 
 RUN apk add --no-cache bash gettext nmap-ncat openssl busybox-extras
 
