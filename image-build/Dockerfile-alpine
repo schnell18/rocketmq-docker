@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-FROM schnell18/zulu-java:alpine-jre8-0.2.0
+FROM schnell18/zulu-java:alpine-jre17-0.1.0
 
 RUN apk add --no-cache bash gettext nmap-ncat openssl busybox-extras
 
@@ -40,15 +40,15 @@ RUN set -eux; \
 	gpg --import KEYS; \
     gpg --batch --verify rocketmq.zip.asc rocketmq.zip; \
     unzip rocketmq.zip; \
-	mv rocketmq-all*/* . ; \
-	rmdir rocketmq-all* ; \
+	mv rocketmq-$ROCKETMQ_VERSION/* . ; \
+	rmdir rocketmq-$ROCKETMQ_VERSION; \
 	rm rocketmq.zip rocketmq.zip.asc KEYS; \
 	apk del .build-deps ; \
     rm -rf /var/cache/apk/* ; \
     rm -rf /tmp/*
 
 # Copy customized scripts
-COPY scripts/ ${ROCKETMQ_HOME}/bin/
+COPY scripts/* ${ROCKETMQ_HOME}/bin/
 
 # Expose namesrv port
 EXPOSE 9876
