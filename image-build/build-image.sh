@@ -34,6 +34,7 @@ fi
 ROCKETMQ_VERSION=$1
 BASE_IMAGE=$2
 ARCH=$3
+REV=$4
 
 checkVersion $ROCKETMQ_VERSION
 
@@ -44,13 +45,13 @@ case "${BASE_IMAGE}" in
             docker build \
                  --no-cache \
                  -f Dockerfile-alpine \
-                 -t schnell18/rocketmq:${ROCKETMQ_VERSION}-alpine \
+                 -t schnell18/rocketmq:${ROCKETMQ_VERSION}-${REV}-alpine \
                  --build-arg version=${ROCKETMQ_VERSION} .
         else
             docker build \
                  --no-cache \
                  -f Dockerfile-alpine \
-                 -t schnell18/rocketmq:${ROCKETMQ_VERSION}-alpine-${ARCH} \
+                 -t schnell18/rocketmq:${ROCKETMQ_VERSION}-${REV}-alpine-${ARCH} \
                  --build-arg version=${ROCKETMQ_VERSION} .
         fi
     ;;

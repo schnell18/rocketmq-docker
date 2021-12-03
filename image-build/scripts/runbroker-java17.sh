@@ -21,6 +21,7 @@ JAVA_OPT="${JAVA_OPT} -XX:-OmitStackTraceInFastThrow"
 JAVA_OPT="${JAVA_OPT} -XX:+AlwaysPreTouch"
 JAVA_OPT="${JAVA_OPT} -XX:MaxDirectMemorySize=${MaxDirectMemorySize}"
 JAVA_OPT="${JAVA_OPT} -XX:-UseLargePages -XX:-UseBiasedLocking"
+JAVA_OPT="${JAVA_OPT} -Duser.home=/home/rocketmq"
 JAVA_OPT="${JAVA_OPT} -cp ${CLASSPATH}"
 
 java ${JAVA_OPT} org.apache.rocketmq.broker.BrokerStartup $@

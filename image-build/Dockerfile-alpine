@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-FROM schnell18/zulu-java:alpine-jre17-0.1.0
+FROM schnell18/zulu-java:alpine-jre17-0.1.1
 
 RUN apk add --no-cache bash gettext nmap-ncat openssl busybox-extras
 
@@ -68,8 +68,5 @@ RUN mv ${ROCKETMQ_HOME}/bin/runbroker-customize.sh ${ROCKETMQ_HOME}/bin/runbroke
 
 # Export Java options
 RUN export JAVA_OPT=" -Duser.home=/home/rocketmq"
-
-# Add ${JAVA_HOME}/lib/ext as java.ext.dirs
-RUN sed -i 's/${JAVA_HOME}\/jre\/lib\/ext/${JAVA_HOME}\/jre\/lib\/ext:${JAVA_HOME}\/lib\/ext/' ${ROCKETMQ_HOME}/bin/tools.sh
 
 WORKDIR ${ROCKETMQ_HOME}/bin

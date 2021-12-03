@@ -10,5 +10,6 @@ case "${dockerArch}" in
     *) echo "unsupported architecture: $dockerArch"; exit 1 ;;
 esac
 
-./build-image.sh $ROCKETMQ_VERSION alpine $ARCH
-docker push schnell18/rocketmq:$ROCKETMQ_VERSION-alpine-${ARCH}
+REV=2
+./build-image.sh $ROCKETMQ_VERSION alpine $ARCH $REV
+docker push schnell18/rocketmq:$ROCKETMQ_VERSION-$REV-alpine-${ARCH}
