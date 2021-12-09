@@ -21,6 +21,8 @@ JAVA_OPT="${JAVA_OPT} -XX:-OmitStackTraceInFastThrow"
 JAVA_OPT="${JAVA_OPT} -XX:+AlwaysPreTouch"
 JAVA_OPT="${JAVA_OPT} -XX:MaxDirectMemorySize=${MaxDirectMemorySize}"
 JAVA_OPT="${JAVA_OPT} -XX:-UseLargePages -XX:-UseBiasedLocking"
+JAVA_OPT="${JAVA_OPT} --add-opens java.base/java.nio=ALL-UNNAMED"
+JAVA_OPT="${JAVA_OPT} --add-exports java.base/jdk.internal.ref=ALL-UNNAMED"
 JAVA_OPT="${JAVA_OPT} -Duser.home=/home/rocketmq"
 JAVA_OPT="${JAVA_OPT} -cp ${CLASSPATH}"
 
